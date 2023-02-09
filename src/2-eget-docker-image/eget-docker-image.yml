@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eget-docker-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eget-docker-image
+  template:
+    metadata:
+      labels:
+        app: eget-docker-image
+    spec:
+      containers:
+      - image: ghcr.io/slamidtfyn/eget-docker-image
+        name: eget-docker-image
+      imagePullSecrets:
+        - name: ghsecret

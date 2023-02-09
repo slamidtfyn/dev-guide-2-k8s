@@ -14,7 +14,8 @@
 			"version": "latest",
 			"helm": "latest",
 			"minikube": "latest"
-		}
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

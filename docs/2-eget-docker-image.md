@@ -12,6 +12,8 @@ $ docker build -t eget-docker-image \
         ./src/2-eget-docker-image
 ```
 
+Hvis dette fejler skal der rettes i `~/.docker/config.json`, så der står `"credStore"` istedet for `"credsStore"`
+
 Dette image skal så pushed til github - udskift `<github-user-name>` med eget brugernavn
 
 ```bash
@@ -21,7 +23,27 @@ $ docker push ghcr.io/<github-user-name>/eget-docker-image
 
 Dette vil fejle, hvis der ikke er logget ind i docker med github. 
 
-Følgende steps skal følges for at udføre dette:
+Først skal der oprettes en Classic Access Token med rettighed til read, write og delete packages - [Følge denne guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
-1. Opret Access Token med rettighed til read, write og delete packages - [Følge denne guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-2. 
+Herefter logges der ind med dette token
+
+```bash
+$ export TOKEN=<token>
+$ export GITHUB_USER=<github-brugernavn>
+$ echo $TOKEN | docker login ghcr.io -u $GITHUB_USER --password-stdin
+```
+
+Der kan nu pushes image igen
+
+```bash
+$ docker push ghcr.io/<github-user-name>/eget-docker-image
+```
+
+asdasdasdasda
+
+```bash
+kubectl create secret docker-registry ghsecret \
+  --docker-server=ghcr.io \
+  --docker-username=$GITHUB_USER \
+  --docker-password=$TOKEN
+```

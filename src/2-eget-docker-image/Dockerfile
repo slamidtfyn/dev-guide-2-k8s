@@ -6,4 +6,4 @@ WORKDIR /app
 
 COPY start.sh .
 
-ENTRYPOINT [ "start.sh" ]
+CMD [ "./start.sh" ]
