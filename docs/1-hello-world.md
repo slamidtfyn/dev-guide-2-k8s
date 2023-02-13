@@ -28,7 +28,7 @@ $ kubectl logs --selector app=hello-world
 
 For bedre at kunne styre dette, kan der istedet anvendes en yaml fil der beskriver en deployment.
 
-I [src/1-hello-world.md](../src/1-hello-world/hello-world.yml) er der et eksempel på en konfiguration der tilsvarer den manuelt oprettede hello-world deployment
+I [src/1-hello-world.yml](../src/1-hello-world/hello-world.yml) er der et eksempel på en konfiguration der tilsvarer den manuelt oprettede hello-world deployment
 
 Først sletter vi den tidligere oprettede deployment og laver derefter en ny på baggrund af denne konfiguration med en `kubbectl replace`
 
