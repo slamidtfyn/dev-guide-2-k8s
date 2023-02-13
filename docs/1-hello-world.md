@@ -36,7 +36,16 @@ Først sletter vi den tidligere oprettede deployment og laver derefter en ny på
 $ kubectl replace -f src/1-hello-world/hello-world.yml
 ```
 
-Med `get pods`kan man nu se at der er startet de samme 3 pods
+Med `get pods` kan man nu se at der er startet de samme 3 pods
+
+## Oprydning
+
+Slet deployment med 
+
+```bash
+kubectl delete deployment hello-world
+```
+
 
 [Forrige side](config.md) | [Næste side](2-eget-docker-image.md)
 
